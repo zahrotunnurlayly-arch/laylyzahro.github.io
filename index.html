@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dr. Zainur Rasyid Ridlo.S.Pd, M.Pd, MCE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#fdf3e3;--card:#fff;--primary:#7a5c1e;--accent:#c49a2b;
+  --text:#3d2e0f;--muted:#8a7460;--border:#d4b896;
+  --shadow:0 4px 24px rgba(122,92,30,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px;
+  box-shadow:0 2px 12px rgba(122,92,30,.07)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;
+  color:var(--accent);text-decoration:none;cursor:pointer}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text);font-size:.92rem;font-weight:400;
+  transition:color .2s;cursor:pointer;padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent)}
+.btn-cv{border:2px solid var(--primary);background:transparent;color:var(--primary);
+  font-family:'Lato',sans-serif;font-size:.88rem;font-weight:700;padding:7px 18px;
+  border-radius:50px;cursor:pointer;transition:background .2s,color .2s;text-decoration:none}
+.btn-cv:hover{background:var(--primary);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all .3s}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;animation:fadeUp .45s ease forwards}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SHARED ── */
+.section-wrap{max-width:1080px;margin:0 auto;padding:60px 40px}
+.section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;
+  color:var(--accent);text-align:center;margin-bottom:12px}
+.divider{width:56px;height:3px;background:var(--accent);border-radius:2px;margin:0 auto 36px}
+.section-desc{text-align:center;color:var(--muted);font-size:.95rem;line-height:1.85;
+  max-width:720px;margin:0 auto 44px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#fdf3e3 60%,#f5e0c0 100%);padding:72px 40px 60px;
+  display:flex;align-items:center;justify-content:center;gap:64px;flex-wrap:wrap}
+.hero-avatar{width:190px;height:190px;border-radius:50%;border:4px solid var(--accent);
+  box-shadow:0 8px 32px rgba(196,154,43,.2);background:#f5e0c0;display:flex;
+  align-items:center;justify-content:center;font-size:4.5rem;flex-shrink:0}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;
+  color:var(--primary);margin-bottom:6px}
+.hero-text .subtitle{font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:14px;letter-spacing:.4px}
+.hero-text p{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:460px}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.badge{background:var(--primary);color:#fff;font-size:.78rem;font-weight:700;
+  padding:4px 14px;border-radius:50px;letter-spacing:.3px}
+
+/* ── NEWS / CARDS ── */
+.news-header{background:linear-gradient(135deg,var(--primary),#5a3e0e);
+  color:#fff;padding:48px 40px 36px;text-align:center}
+.news-header h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:8px}
+.news-header p{font-size:.93rem;opacity:.85;max-width:600px;margin:0 auto;line-height:1.75}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:860px){.cards-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;overflow:hidden;transition:transform .22s,box-shadow .22s;
+  border:1px solid #f0e6d3}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(122,92,30,.16)}
+.card-thumb{height:160px;background:linear-gradient(135deg,#f5e0c0,#e8c99a);
+  display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.card-body{padding:22px 20px 20px;flex:1;display:flex;flex-direction:column}
+.card-tag{font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;
+  letter-spacing:.6px;margin-bottom:8px}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;
+  color:var(--primary);margin-bottom:10px;line-height:1.4}
+.card-desc{font-size:.87rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:18px}
+.card-meta{font-size:.78rem;color:var(--border);margin-bottom:14px}
+.btn-read{background:var(--primary);color:#fff;border:none;padding:9px 22px;
+  border-radius:8px;font-size:.87rem;font-weight:700;cursor:pointer;
+  font-family:'Lato',sans-serif;transition:background .2s,transform .15s;
+  display:inline-block;text-align:center}
+.btn-read:hover{background:var(--accent);transform:scale(1.04)}
+
+/* ── ABOUT ── */
+.about-flex{display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap}
+.about-photo{width:220px;height:220px;border-radius:16px;border:4px solid var(--border);
+  background:#f5e0c0;display:flex;align-items:center;justify-content:center;
+  font-size:5rem;flex-shrink:0;box-shadow:var(--shadow)}
+.about-info{flex:1;min-width:260px}
+.about-info h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--primary);margin-bottom:6px}
+.about-info .role{color:var(--accent);font-weight:700;font-size:.95rem;margin-bottom:14px}
+.about-info p{color:var(--muted);font-size:.93rem;line-height:1.85;margin-bottom:20px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.info-box{background:var(--card);border-radius:12px;padding:20px;border:1px solid #f0e6d3;box-shadow:var(--shadow)}
+.info-box h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);margin-bottom:12px}
+.info-box ul{list-style:none}
+.info-box ul li{font-size:.87rem;color:var(--muted);padding:6px 0;
+  border-bottom:1px dashed #f0e6d3;display:flex;align-items:flex-start;gap:8px}
+.info-box ul li:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+
+/* ── LEADERSHIP ── */
+.timeline{position:relative;max-width:720px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{display:flex;gap:28px;margin-bottom:32px;position:relative}
+.tl-dot{width:42px;height:42px;border-radius:50%;background:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  flex-shrink:0;box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--border);z-index:1}
+.tl-body{background:var(--card);border-radius:12px;padding:18px 22px;flex:1;
+  border:1px solid #f0e6d3;box-shadow:var(--shadow)}
+.tl-body h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--primary);margin-bottom:4px}
+.tl-body .tl-year{font-size:.78rem;color:var(--accent);font-weight:700;margin-bottom:8px}
+.tl-body p{font-size:.87rem;color:var(--muted);line-height:1.7}
+
+/* ── PUBLIKASI ── */
+.pub-list{display:flex;flex-direction:column;gap:20px}
+.pub-item{background:var(--card);border-radius:14px;padding:24px 28px;
+  border-left:4px solid var(--accent);box-shadow:var(--shadow);
+  display:flex;gap:20px;align-items:flex-start;transition:transform .2s}
+.pub-item:hover{transform:translateX(6px)}
+.pub-icon{font-size:2rem;flex-shrink:0}
+.pub-body h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--primary);margin-bottom:6px}
+.pub-body .pub-meta{font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:8px}
+.pub-body p{font-size:.87rem;color:var(--muted);line-height:1.7}
+.pub-tag{display:inline-block;background:#f5e0c0;color:var(--primary);
+  font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px}
+
+/* ── GALERI ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:700px){.gallery-grid{grid-template-columns:1fr 1fr}}
+.gallery-item{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#f5e0c0,#e8c99a);
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  border:2px solid var(--border);cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative}
+.gallery-item:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(122,92,30,.18)}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(122,92,30,.85);
+  color:#fff;font-size:.78rem;padding:8px 12px;transform:translateY(100%);transition:transform .25s}
+.gallery-item:hover .gallery-caption{transform:translateY(0)}
+
+/* ── KONTAK ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:start}
+@media(max-width:760px){.contact-wrap{grid-template-columns:1fr}}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--primary);margin-bottom:16px}
+.contact-info p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.contact-detail{display:flex;flex-direction:column;gap:14px}
+.c-item{display:flex;align-items:center;gap:14px;font-size:.9rem;color:var(--muted)}
+.c-icon{width:40px;height:40px;border-radius:10px;background:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.form-box{background:var(--card);border-radius:16px;padding:36px;
+  border:1px solid #f0e6d3;box-shadow:var(--shadow)}
+.form-box label{display:block;font-size:.85rem;font-weight:700;color:var(--primary);
+  margin-bottom:5px;margin-top:16px}
+.form-box label:first-child{margin-top:0}
+.form-box input,.form-box textarea,.form-box select{width:100%;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;
+  font-size:.9rem;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s}
+.form-box input:focus,.form-box textarea:focus,.form-box select:focus{border-color:var(--accent)}
+.form-box textarea{height:100px;resize:vertical}
+.btn-submit{margin-top:20px;width:100%;background:var(--primary);color:#fff;border:none;
+  padding:12px;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;
+  font-family:'Lato',sans-serif;transition:background .2s}
+.btn-submit:hover{background:var(--accent)}
+
+/* ── PORTAL TUGAS ── */
+.portal-header{background:linear-gradient(135deg,#5a3e0e,var(--primary));
+  color:#fff;padding:48px 40px;text-align:center}
+.portal-header h2{font-family:'Playfair Display',serif;font-size:1.85rem;margin-bottom:8px}
+.portal-header p{font-size:.92rem;opacity:.85;max-width:560px;margin:0 auto;line-height:1.75}
+.portal-tabs{display:flex;gap:0;background:var(--card);border-radius:12px;
+  overflow:hidden;border:1.5px solid var(--border);width:fit-content;margin:0 auto 36px}
+.ptab{padding:11px 28px;font-size:.9rem;font-weight:700;cursor:pointer;
+  background:none;border:none;font-family:'Lato',sans-serif;color:var(--muted);
+  transition:background .2s,color .2s}
+.ptab.active{background:var(--primary);color:#fff}
+.portal-panel{display:none}.portal-panel.active{display:block}
+.tugas-form{background:var(--card);border-radius:16px;padding:36px;
+  border:1px solid #f0e6d3;box-shadow:var(--shadow);max-width:640px;margin:0 auto}
+.tugas-form h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--primary);margin-bottom:6px}
+.tugas-form .form-note{font-size:.83rem;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.tugas-form label{display:block;font-size:.85rem;font-weight:700;color:var(--primary);
+  margin-bottom:5px;margin-top:16px}
+.tugas-form label:first-of-type{margin-top:0}
+.tugas-form input,.tugas-form textarea,.tugas-form select{width:100%;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;
+  font-size:.9rem;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s}
+.tugas-form input:focus,.tugas-form textarea:focus,.tugas-form select:focus{border-color:var(--accent)}
+.tugas-form textarea{height:120px;resize:vertical}
+.upload-area{border:2px dashed var(--border);border-radius:10px;padding:32px;
+  text-align:center;background:var(--bg);cursor:pointer;transition:border-color .2s,background .2s}
+.upload-area:hover{border-color:var(--accent);background:#fdf0de}
+.upload-area .upload-icon{font-size:2.5rem;margin-bottom:10px}
+.upload-area p{font-size:.88rem;color:var(--muted)}
+.upload-area span{color:var(--accent);font-weight:700}
+#file-input{display:none}
+.file-preview{background:#f5e0c0;border-radius:8px;padding:10px 14px;
+  font-size:.85rem;color:var(--primary);margin-top:10px;display:none;
+  display:flex;align-items:center;gap:10px}
+.char-count{font-size:.75rem;color:var(--muted);text-align:right;margin-top:4px}
+.success-msg{display:none;background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:12px;
+  padding:24px;text-align:center;margin-top:20px}
+.success-msg .s-icon{font-size:2.5rem;margin-bottom:8px}
+.success-msg h4{color:#2e7d32;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:6px}
+.success-msg p{font-size:.87rem;color:#388e3c}
+
+/* Rekap panel */
+.rekap-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.rekap-table th{background:var(--primary);color:#fff;padding:11px 14px;text-align:left;font-size:.83rem}
+.rekap-table td{padding:11px 14px;border-bottom:1px solid #f0e6d3;color:var(--muted)}
+.rekap-table tr:hover td{background:#fdf0de}
+.badge-status{padding:3px 10px;border-radius:50px;font-size:.74rem;font-weight:700}
+.badge-tepat{background:#e8f5e9;color:#2e7d32}
+.badge-terlambat{background:#fff3e0;color:#e65100}
+/* ── MATERI ── */
+.materi-group{margin-bottom:40px}
+.materi-group-title{font-family:'Playfair Display',serif;font-size:1.15rem;
+  font-weight:700;color:var(--primary);padding:12px 20px;
+  background:linear-gradient(135deg,#fdf0de,#f5e0c0);
+  border-radius:10px;border-left:4px solid var(--accent);
+  margin-bottom:12px}
+.materi-list{display:flex;flex-direction:column;gap:12px}
+.materi-item{background:var(--card);border-radius:12px;padding:18px 22px;
+  border:1px solid #f0e6d3;box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;transition:transform .2s,box-shadow .2s}
+.materi-item:hover{transform:translateX(4px);
+  box-shadow:0 6px 24px rgba(122,92,30,.14)}
+.materi-info{display:flex;align-items:center;gap:16px;flex:1;min-width:200px}
+.materi-icon{font-size:1.8rem;flex-shrink:0}
+.materi-name{font-weight:700;color:var(--text);font-size:.95rem;margin-bottom:4px}
+.materi-meta{font-size:.78rem;color:var(--muted)}
+.materi-actions{display:flex;gap:10px;flex-shrink:0}
+.btn-lihat{background:transparent;border:2px solid var(--primary);
+  color:var(--primary);padding:8px 16px;border-radius:8px;
+  font-size:.85rem;font-weight:700;cursor:pointer;
+  text-decoration:none;font-family:'Lato',sans-serif;
+  transition:background .2s,color .2s;white-space:nowrap}
+.btn-lihat:hover{background:var(--primary);color:#fff}
+/* ── FOOTER ── */
+footer{background:var(--primary);color:#f5e6c8;text-align:center;
+  padding:26px 24px;font-size:.87rem;margin-top:40px}
+footer span{color:var(--accent);font-weight:700}
+
+/* ── RESPONSIVE NAV ── */
+@media(max-width:900px){
+  .nav-links{display:none;flex-direction:column;position:absolute;
+    top:66px;left:0;right:0;background:var(--bg);padding:16px 32px 24px;
+    border-bottom:1px solid var(--border);gap:12px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .section-wrap{padding:48px 20px}
+  .hero{padding:48px 20px 40px;gap:28px}
+  .info-grid{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <span class="nav-logo" onclick="showPage('beranda')">Dr. Zainur Rasyid Ridlo, S.Pd, M.Pd</span>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('beranda')" id="nav-beranda" class="active">Beranda</a></li>
+    <li><a onclick="showPage('tentang')" id="nav-tentang">Tentang</a></li>
+    <li><a onclick="showPage('kepemimpinan')" id="nav-kepemimpinan">Kepemimpinan</a></li>
+    <li><a onclick="showPage('publikasi')" id="nav-publikasi">Publikasi</a></li>
+    <li><a onclick="showPage('kegiatan')" id="nav-kegiatan">Kegiatan Akademik</a></li>
+    <li><a onclick="showPage('galeri')" id="nav-galeri">Galeri</a></li>
+    <li><a onclick="showPage('materi')" id="nav-materi">Materi</a></li>
+    <li><a onclick="showPage('kontak')" id="nav-kontak">Kontak</a></li>
+    <li><a onclick="showPage('portal')" id="nav-portal" style="color:var(--accent);font-weight:700">📥 Portal Tugas</a></li>
+  </ul>
+  <div style="display:flex;gap:12px;align-items:center">
+    <a href="CV_Zainur.pdf" download class="btn-cv">Unduh CV</a>
+    <button class="hamburger" onclick="toggleNav()" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     PAGE: BERANDA
+══════════════════════════════════════ -->
+<div class="page active" id="page-beranda">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-avatar" style="overflow:hidden;padding:0">
+  <img src="Foto_Zainur_2025.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>
+</div>
+    <div class="hero-text">
+      <h1>Dr. Zainur Rasyid Ridlo, S.Pd, M.Pd, MCE</h1>
+      <div class="subtitle">Dosen FKIP Universitas Jember</div>
+      <p>Dosen Program studi S1 dan S2 Pendidikan IPA dengan topik Penelitian Smart Sensor, Machine Learning for science Education, dan Web3 for Science Education</p>
+      <div class="hero-badges">
+        <span class="badge">Smart Sensor</span>
+        <span class="badge">Machine Learning</span>
+        <span class="badge">Blockchain </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Berita Kegiatan -->
+  <div style="background:#fff8f0;border-top:1px solid var(--border)">
+    <div class="section-wrap">
+      <div class="news-header" style="border-radius:16px;margin-bottom:36px">
+        <h2>Berita &amp; Kegiatan Terkini</h2>
+        <p>Informasi terbaru seputar kegiatan akademik, workshop, seminar, dan pencapaian terbaru.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="workshop.jpg" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+          <div class="card-body">
+            <div class="card-tag">International Conference</div>
+            <div class="card-title">International Conference Shahardya - India</div>
+            <p class="card-desc">International Conference tentang smart sensor, machine learning dan penerapannya pada pertanian presisi.</p>
+            <div class="card-meta">📅 15 Mei 2025</div>
+            <button class="btn-read" onclick="showPage('kegiatan')">Baca Selengkapnya</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="risetntnu.jpg" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+          <div class="card-body">
+            <div class="card-tag">Visiting Researchers</div>
+            <div class="card-title">Visiting Researcher NTNU-Taiwan</div>
+            <p class="card-desc">Visiting researcher di NTNU Taiwan dan kolaborasi penelitian di bidang STEM Education</p>
+            <div class="card-meta">📅 2 April 2025</div>
+            <button class="btn-read" onclick="showPage('publikasi')">Baca Selengkapnya</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="publikasi.png" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+          <div class="card-body">
+            <div class="card-tag">Publikasi</div>
+            <div class="card-title">Publikasi di Jurnal Internasional Bereputasi Scopus Q2</div>
+            <p class="card-desc">Publikasi riset Smart Sensor, Teori Graf, dan Machine Learning Timeseries Forecasting.</p>
+            <div class="card-meta">📅 10 Maret 2025</div>
+            <button class="btn-read" onclick="showPage('tentang')">Baca Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: TENTANG
+══════════════════════════════════════ -->
+<div class="page" id="page-tentang">
+  <div class="section-wrap">
+    <div class="section-title">Curriculum Vitae</div>
+    <div class="divider"></div>
+
+    <div class="about-flex" style="margin-bottom:44px">
+      <div class="about-photo" style="padding:0;overflow:hidden">
+  <img src="Foto_Zainur_2025.jpg" 
+       style="width:100%;height:100%;object-fit:cover;border-radius:12px"
+       alt="Dr. Zainur Rasyid Ridlo"/>
+</div>
+      <div class="about-info">
+        <h2>Dr. Zainur Rasyid Ridlo, S.Pd., M.Pd, MCE</h2>
+        <div class="role">Dosen FKIP Universitas Jember · NIP 198805232019031009</div>
+        <p>Dosen FKIP Universitas Jember dengan Tema Penelitian Smart Sensor, Machine Learning, Computational Thinking, dan Machine Learning.</p>
+        <p>Aktif dalam kegiatan penelitian dengan Tema Penelitian Smart Sensor, Machine Learning, Computational Thinking, dan Machine Learning.</p>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>🎓 Riwayat Pendidikan</h3>
+        <ul>
+          <li><span class="dot"></span>S3 Pendidikan IPA — Universitas Jember, 2025</li>
+          <li><span class="dot"></span>Non Degree Training National Taiwan Normal University, 2019</li>
+          <li><span class="dot"></span>S2 Pendidikan IPA — Universitas Jember, 2017</li>
+          <li><span class="dot"></span>S1 Pendidikan Fisika — Universitas Jember, 2013</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🏅 Prestasi</h3>
+        <ul>
+          <li><span class="dot"></span>Reviewer Internasional Jurnal Bereputasi (Scopus)</li>
+          <li><span class="dot"></span>Awardee NDT IDb 2019</li>
+          <li><span class="dot"></span>Awarde PFR Diktisainteks</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🎯 Keahlian</h3>
+        <ul>
+          <li><span class="dot"></span>Pembelajaran RBL-STEM</li>
+          <li><span class="dot"></span>Smart Sensor for Science Education</li>
+          <li><span class="dot"></span>Machine Learning for Science Education</li>
+          <li><span class="dot"></span>Blockchain and Web3 for Science Education</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>📚 Mata Kuliah Diampu</h3>
+        <ul>
+          <li><span class="dot"></span>STEAM Innovative Learning Media (S2)</li>
+          <li><span class="dot"></span>Matematika Sains (S1)</li>
+          <li><span class="dot"></span>Agrosains (S1)</li>
+          <li><span class="dot"></span>Klimatologi (S1)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: KEPEMIMPINAN
+══════════════════════════════════════ -->
+<div class="page" id="page-kepemimpinan">
+  <div class="section-wrap">
+    <div class="section-title">Kepemimpinan &amp; Organisasi</div>
+    <div class="divider"></div>
+    <p class="section-desc">Rekam jejak peran kepemimpinan dan kontribusi Tridharma Perguruan Tinggi.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-dot">👑</div>
+        <div class="tl-body">
+          <h3>Anggota Kelompok Riset CEREBEL</h3>
+          <div class="tl-year">2018 — Sekarang</div>
+          <p>Anggota Kelompok Riset level Fakultas di FKIP Universitas Jember dengan fokus penelitian bidang machine learning di bidang pendidikan.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">📋</div>
+        <div class="tl-body">
+          <h3>Pengembang Web3-CNN </h3>
+          <div class="tl-year">2025 — Sekarang</div>
+          <p>Mengembangkan Web3 yang digabung dengan CNN untuk Penelitian bidang Pertanian Presisi.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">🏛️</div>
+        <div class="tl-body">
+          <h3>Pengembang Smart Sensor</h3>
+          <div class="tl-year">2022 — Sekarang</div>
+          <p>Pengembang smart sensor berbasis agriculture dalam pembelajaran.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">🎓</div>
+        <div class="tl-body">
+          <h3>Pembina OSN IPA</h3>
+          <div class="tl-year">2014 — Sekarang</div>
+          <p>Pembina OSN bidang IPA, dengan keahlian khusus bidang Fisika Teori.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: PUBLIKASI
+══════════════════════════════════════ -->
+<div class="page" id="page-publikasi">
+  <div class="section-wrap">
+    <div class="section-title">Publikasi</div>
+    <div class="divider"></div>
+    <p class="section-desc">Kumpulan karya ilmiah, artikel jurnal yang telah dipublikasikan.</p>
+
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-icon">📄</div>
+        <div class="pub-body">
+          <h3>Computational Thinking and Deep Learning on Science Education Framework: A Systematic Review</h3>
+          <div class="pub-meta">Science Education International 36 (4) · 2025</div>
+          <p>Penelitian ini menganalisis literature review computational thinking dan Ai literacy dalam kerangka Pendidikan IPA</p>
+          <span class="pub-tag">Jurnal Internasional Terindesk Scopus (Q3)</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-icon">🔬</div>
+        <div class="pub-body">
+          <h3>On RIDS Analysis for Shade Tree Placement and Its Application to STGNN Multi-step Forecasting on RH and CO2 Concentration of Coffee Agroforestry</h3>
+          <div class="pub-meta">Statistics, Optimization & Information Computing, Vol 14 No 3 2025</div>
+          <p>Penelitian ini mengkaji penerapan sensor yang efektif dalam melakukan timeseries forecasting mikro iklim di perkebunan kakao</p>
+          <span class="pub-tag">Jurnal Internasional Terindesk Scopus (Q2)</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-icon">💡</div>
+        <div class="pub-body">
+          <h3>Computer Vision on Education: Fostering AI Literacy using RBL-STEM with Google Teachable Machine</h3>
+          <div class="pub-meta">Jurnal Penelitian & Pengembangan Pendidikan Fisika 11 (2), 2025</div>
+          <p>Penelitian ini menganalisis implementasi Model Pembelajaran RBL-STEM yang terintegrasi Google Teachable Machine untuk meningkatkan Ai Literacy.</p>
+          <span class="pub-tag">Jurnal Penelitian & Pengembangan Pendidikan Fisika 11 (2), 2025</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-icon">📚</div>
+        <div class="pub-body">
+          <h3>Exploring the impact of makerspace-based learning materials on students’ computational thinking skills: Using machine learning to address challenges in smart coffee agroforestry</h3>
+          <div class="pub-meta">Edelweiss Applied Science and Technology 8 (5), 2024</div>
+          <p>Penelitian bidang pendidikan yang mengntegrasikan smart sensor dan machine learning dengan model RBL-STEM untuk meningkatkan keterampilan berfikir komputasional mahasiswa</p>
+          <span class="pub-tag">Jurnal Internasional Terindesk Scopus (Q3)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: KEGIATAN AKADEMIK
+══════════════════════════════════════ -->
+<div class="page" id="page-kegiatan">
+  <div class="section-wrap">
+    <div class="section-title">Kegiatan Akademik</div>
+    <div class="divider"></div>
+    <p class="section-desc">Dokumentasi kegiatan seminar, workshop, dan pelatihan akademik yang diikuti maupun diselenggarakan.</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="pengabdian.jpg" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+        <div class="card-body">
+          <div class="card-tag">Pengabdian</div>
+          <div class="card-title">Workshop Ai for Education</div>
+          <p class="card-desc">Workshop memfokuskan pada pemanfaatan AI dalam pembelajaran IPA di SMP dengan menggunakan Teachable Machine.</p>
+          <div class="card-meta">📅 15 Mei 2025 · Situbondo</div>
+          <button class="btn-read">Selengkapnya</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="risetntnu.jpg" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+        <div class="card-body">
+          <div class="card-tag">Research Collaboration</div>
+          <div class="card-title">Kolaborasi Penelitian dengan NTNU</div>
+          <p class="card-desc">Kolaborasi penelitian dengan National Taiwan Normal University bidang STEM Education</p>
+          <div class="card-meta">📅 20 Maret 2025 · Taiwan</div>
+          <button class="btn-read">Selengkapnya</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb" style="padding:0;overflow:hidden">
+  <img src="teac_mach1.png" style="width:100%;height:100%;object-fit:cover"/>
+</div>
+        <div class="card-body">
+          <div class="card-tag">Pengembangan Aplikasi</div>
+          <div class="card-title">Pengembangan Aplikasi CNN Sederhana</div>
+          <p class="card-desc">Pengembangan aplikasi android berbasis Googgle Teachable Machine untuk klasifikasi kematangan buah Kopi</p>
+          <div class="card-meta">📅 Jan — Des 2024</div>
+          <button class="btn-read">Selengkapnya</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: GALERI
+══════════════════════════════════════ -->
+<div class="page" id="page-galeri">
+  <div class="section-wrap">
+    <div class="section-title">Galeri</div>
+    <div class="divider"></div>
+    <p class="section-desc">Dokumentasi foto berbagai kegiatan akademik, pelatihan, dan momen berharga dalam perjalanan karier.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="padding:0">
+  <img src="workshop.jpg" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Workshop Road to Research (India)</div>
+</div>
+      <div class="gallery-item" style="padding:0">
+  <img src="cnn_use.png" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Arsitektur CNN</div>
+</div>
+      <div class="gallery-item" style="padding:0">
+  <img src="taipei_zoo.jpg" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Visiting Taipei Zoo</div>
+</div>
+      <div class="gallery-item" style="padding:0">
+  <img src="taipei_collaboration.jpg" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Research Collaboration NTNU-Taipei</div>
+</div>
+      <div class="gallery-item" style="padding:0">
+  <img src="changi.png" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Visiting Singapore</div>
+</div>
+      <div class="gallery-item" style="padding:0">
+  <img src="forecasting.png" 
+       style="width:100%;height:100%;object-fit:cover"/>
+  <div class="gallery-caption">Timeseries Forecasting</div>
+</div>
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:.85rem;color:var(--muted)">
+      💡 Ganti emoji di atas dengan foto asli menggunakan tag &lt;img&gt; di file HTML
+    </p>
+  </div>
+</div>
+
+<!-- PAGE: MATERI -->
+<div class="page" id="page-materi">
+  <div class="section-wrap">
+    <div class="section-title">📚 Materi Pembelajaran</div>
+    <div class="divider"></div>
+    <p class="section-desc">
+      Kumpulan materi, modul, dan bahan ajar yang dapat diunduh 
+      secara gratis. Klik tombol unduh untuk mendapatkan file PDF.
+    </p>
+
+    <!-- MATA KULIAH / TOPIK 1 -->
+    <div class="materi-group">
+      <h3 class="materi-group-title">🔬 Research Based Learning</h3>
+      <div class="materi-list">
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">RBL-STEM Smart Agroforestry Computational Thinking Skills</div>
+              <div class="materi-meta">📅 2024 &nbsp;|&nbsp; 📦 21 MB &nbsp;|&nbsp; 📖 45 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="Edelweiss_Cultivating_Computational_Thinking.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="Edelweiss_Cultivating_Computational_Thinking.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Naskah Akademik Koding dan Kecerdasan Artificial</div>
+              <div class="materi-meta">📅 2025 &nbsp;|&nbsp; 📦 1.9 MB &nbsp;|&nbsp; 📖 38 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="naskah_KKA.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="naskah_KKA.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Permendikdasmen No 1, tahun 2026</div>
+              <div class="materi-meta">📅 2024 &nbsp;|&nbsp; 📦 1.5 MB &nbsp;|&nbsp; 📖 30 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="permen_01_2026.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="permen_01_2026.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MATA KULIAH / TOPIK 2 -->
+    <div class="materi-group">
+      <h3 class="materi-group-title">🧪 Machine Learning and Smart Sensor</h3>
+      <div class="materi-list">
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Machine Learning ANN</div>
+              <div class="materi-meta">📅 2024 &nbsp;|&nbsp; 📦 3.1 MB &nbsp;|&nbsp; 📖 60 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="SOIC_Q2_Graph_AI_for_Precision_Coffee_Farming.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="SOIC_Q2_Graph_AI_for_Precision_Coffee_Farming.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Smart Sensor ANN</div>
+              <div class="materi-meta">📅 2024 &nbsp;|&nbsp; 📦 2.2 MB &nbsp;|&nbsp; 📖 50 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="bahan-ajar-stem.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="bahan-ajar-stem.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MATA KULIAH / TOPIK 3 -->
+    <div class="materi-group">
+      <h3 class="materi-group-title">💻 Web3 dan Blockchain Technology</h3>
+      <div class="materi-list">
+
+        <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Blockchain Architechture and Technology</div>
+              <div class="materi-meta">📅 2025 &nbsp;|&nbsp; 📦 4.0 MB &nbsp;|&nbsp; 📖 75 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="Architecting_Blockchain_Trust.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="Architecting_Blockchain_Trust.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+ <div class="materi-item">
+          <div class="materi-info">
+            <div class="materi-icon">📄</div>
+            <div>
+              <div class="materi-name">Blockchain for Beginner</div>
+              <div class="materi-meta">📅 2025 &nbsp;|&nbsp; 📦 4.0 MB &nbsp;|&nbsp; 📖 75 hal</div>
+            </div>
+          </div>
+          <div class="materi-actions">
+            <a href="Blockchain_For_Beginners.pdf" target="_blank" class="btn-lihat">👁️ Lihat</a>
+            <a href="Blockchain_For_Beginners.pdf" download class="btn-cv">⬇️ Unduh</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: KONTAK
+══════════════════════════════════════ -->
+<div class="page" id="page-kontak">
+  <div class="section-wrap">
+    <div class="section-title">Hubungi Saya</div>
+    <div class="divider"></div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Mari Terhubung!</h3>
+        <p>Jangan ragu untuk menghubungi saya terkait kolaborasi penelitian, undangan sebagai narasumber, atau pertanyaan seputar pendidikan matematika.</p>
+        <div class="contact-detail">
+          <div class="c-item"><div class="c-icon">📧</div><span>namaguru@email.com</span></div>
+          <div class="c-item"><div class="c-icon">📱</div><span>+62 812-3456-7890</span></div>
+          <div class="c-item"><div class="c-icon">🏫</div><span>SMA Negeri 1 Jember, Jawa Timur</span></div>
+          <div class="c-item"><div class="c-icon">🌐</div><span>namaguru.github.io</span></div>
+        </div>
+      </div>
+      <div class="form-box">
+  <form action="https://formspree.io/f/mdajgnrp" method="POST">
+    <label>Nama Lengkap</label>
+    <input type="text" name="nama" placeholder="Nama Anda" required/>
+    <label>Email</label>
+    <input type="email" name="email" placeholder="email@contoh.com" required/>
+    <label>Keperluan</label>
+    <select name="keperluan">
+      <option>Kolaborasi Penelitian</option>
+      <option>Undangan Narasumber</option>
+      <option>Konsultasi Pembelajaran</option>
+      <option>Lainnya</option>
+    </select>
+    <label>Pesan</label>
+    <textarea name="pesan" placeholder="Tulis pesan Anda…"></textarea>
+    <button type="submit" class="btn-submit">Kirim Pesan ✉️</button>
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: PORTAL TUGAS
+══════════════════════════════════════ -->
+<div class="page" id="page-portal">
+  <div class="portal-header">
+    <h2>📥 Portal Pengumpulan Tugas</h2>
+    <p>Siswa dapat mengumpulkan tugas secara digital melalui portal ini. Pastikan semua informasi diisi dengan lengkap dan benar.</p>
+  </div>
+
+  <div class="section-wrap">
+    <!-- Tab Switch -->
+    <div style="display:flex;justify-content:center;margin-bottom:36px">
+      <div class="portal-tabs">
+        <button class="ptab active" onclick="switchTab('kumpul')">📤 Kumpulkan Tugas</button>
+        <button class="ptab" onclick="switchTab('rekap')">📋 Rekap Pengumpulan</button>
+      </div>
+    </div>
+
+    <!-- Panel: Kumpulkan Tugas -->
+    <div class="portal-panel active" id="panel-kumpul">
+      <div class="tugas-form">
+        <h3>Form Pengumpulan Tugas</h3>
+        <p class="form-note">Isi seluruh form dengan benar. Tugas yang sudah dikumpulkan akan diterima oleh guru dan tidak dapat diubah kembali.</p>
+
+        <label>Nama Lengkap Siswa *</label>
+        <input type="text" id="t-nama" placeholder="Nama sesuai absen" required/>
+
+        <label>Kelas *</label>
+        <select id="t-kelas">
+          <option value="">— Pilih Kelas —</option>
+          <option>X MIPA 1</option><option>X MIPA 2</option>
+          <option>XI MIPA 1</option><option>XI MIPA 2</option>
+          <option>XII MIPA 1</option><option>XII MIPA 2</option>
+        </select>
+
+        <label>Nomor Absen *</label>
+        <input type="number" id="t-absen" placeholder="Contoh: 15" min="1" max="40"/>
+
+        <label>Mata Pelajaran *</label>
+        <select id="t-mapel">
+          <option value="">— Pilih Mata Pelajaran —</option>
+          <option>Matematika Wajib</option>
+          <option>Matematika Peminatan</option>
+          <option>Statistika</option>
+        </select>
+
+        <label>Judul / Nama Tugas *</label>
+        <input type="text" id="t-judul" placeholder="Contoh: Latihan Soal Bab 3 — Trigonometri"/>
+
+        <label>Link Tugas (Google Drive / Google Docs)</label>
+        <input type="url" id="t-link" placeholder="https://drive.google.com/..."/>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:5px">
+          💡 Pastikan file sudah di-share "Anyone with the link can view"
+        </div>
+
+        <label style="margin-top:18px">Atau Ketik Jawaban Langsung</label>
+        <textarea id="t-jawaban" placeholder="Ketikkan jawaban atau catatan tugas Anda di sini…" oninput="updateCount(this,'t-count')"></textarea>
+        <div class="char-count" id="t-count">0 karakter</div>
+
+        <label>Catatan untuk Guru</label>
+        <textarea id="t-catatan" placeholder="Opsional: kendala, pertanyaan, atau keterangan tambahan" style="height:80px"></textarea>
+
+        <button class="btn-submit" onclick="submitTugas()">📤 Kumpulkan Tugas</button>
+
+        <div class="success-msg" id="success-box">
+          <div class="s-icon">✅</div>
+          <h4>Tugas Berhasil Dikumpulkan!</h4>
+          <p>Tugas Anda telah tercatat. Pantau status di tab <strong>Rekap Pengumpulan</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel: Rekap -->
+    <div class="portal-panel" id="panel-rekap">
+      <div style="background:var(--card);border-radius:16px;padding:28px;border:1px solid #f0e6d3;box-shadow:var(--shadow)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+          <h3 style="font-family:'Playfair Display',serif;color:var(--primary);font-size:1.1rem">Data Pengumpulan Tugas</h3>
+          <input type="text" placeholder="🔍 Cari nama / kelas…" id="search-rekap"
+            oninput="filterRekap()" style="padding:8px 14px;border:1.5px solid var(--border);
+            border-radius:8px;font-family:'Lato',sans-serif;font-size:.87rem;background:var(--bg);outline:none;width:220px"/>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="rekap-table" id="rekap-table">
+            <thead>
+              <tr>
+                <th>#</th><th>Nama</th><th>Kelas</th><th>Mata Pelajaran</th>
+                <th>Judul Tugas</th><th>Waktu</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="rekap-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:32px;color:var(--muted)">Belum ada tugas yang dikumpulkan.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:16px;font-size:.82rem;color:var(--muted)">
+          💡 Data tersimpan di browser. Untuk penyimpanan permanen, hubungkan dengan Google Sheets atau Formspree.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  &copy; 2025 <span>NamaGuru</span> · Website Portofolio Pendidik · Dibuat dengan ❤️ untuk dunia pendidikan
+</footer>
+
+<script>
+// ── PAGE ROUTING ──
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const nav=document.getElementById('nav-'+id);
+  if(nav) nav.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  // close mobile nav
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ── PORTAL TABS ──
+function switchTab(tab){
+  document.querySelectorAll('.portal-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── CHAR COUNT ──
+function updateCount(el,countId){
+  document.getElementById(countId).textContent=el.value.length+' karakter';
+}
+
+// ── SUBMIT TUGAS ──
+let tugasList = JSON.parse(localStorage.getItem('tugasList')||'[]');
+
+function submitTugas(){
+  const nama=document.getElementById('t-nama').value.trim();
+  const kelas=document.getElementById('t-kelas').value;
+  const absen=document.getElementById('t-absen').value;
+  const mapel=document.getElementById('t-mapel').value;
+  const judul=document.getElementById('t-judul').value.trim();
+  const link=document.getElementById('t-link').value.trim();
+  const jawaban=document.getElementById('t-jawaban').value.trim();
+
+  if(!nama||!kelas||!mapel||!judul){
+    alert('⚠️ Mohon lengkapi semua field yang wajib diisi (*)');return;
+  }
+  if(!link && !jawaban){
+    alert('⚠️ Harap isi link tugas atau jawaban langsung.');return;
+  }
+
+  const now=new Date();
+  const waktu=now.toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'})+
+    ' · '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+
+  const entry={no:tugasList.length+1,nama,kelas,absen,mapel,judul,link,jawaban,waktu};
+  tugasList.push(entry);
+  localStorage.setItem('tugasList',JSON.stringify(tugasList));
+  renderRekap();
+
+  // Reset form
+  ['t-nama','t-link','t-jawaban','t-catatan','t-judul'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('t-kelas').value='';
+  document.getElementById('t-mapel').value='';
+  document.getElementById('t-absen').value='';
+  document.getElementById('t-count').textContent='0 karakter';
+  document.getElementById('success-box').style.display='block';
+  setTimeout(()=>document.getElementById('success-box').style.display='none',5000);
+}
+
+// ── RENDER REKAP ──
+function renderRekap(filter=''){
+  const tbody=document.getElementById('rekap-tbody');
+  const data=tugasList.filter(t=>
+    t.nama.toLowerCase().includes(filter.toLowerCase())||
+    t.kelas.toLowerCase().includes(filter.toLowerCase())||
+    t.mapel.toLowerCase().includes(filter.toLowerCase())
+  );
+  if(!data.length){
+    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:32px;color:var(--muted)">Tidak ada data yang ditemukan.</td></tr>';
+    return;
+  }
+  tbody.innerHTML=data.map(t=>`
+    <tr>
+      <td>${t.no}</td>
+      <td><strong>${t.nama}</strong>${t.absen?' <span style="color:var(--muted);font-size:.78rem">(no.${t.absen})</span>':''}</td>
+      <td>${t.kelas}</td>
+      <td>${t.mapel}</td>
+      <td>${t.judul}${t.link?` <a href="${t.link}" target="_blank" style="color:var(--accent);font-size:.78rem">🔗 Link</a>`:''}</td>
+      <td style="font-size:.8rem">${t.waktu}</td>
+      <td><span class="badge-status badge-tepat">✅ Terkumpul</span></td>
+    </tr>`).join('');
+}
+
+function filterRekap(){
+  renderRekap(document.getElementById('search-rekap').value);
+}
+
+// Init
+renderRekap();
+
+// Hash routing on load
+const hash=location.hash.replace('#','');
+if(hash) showPage(hash);
+</script>
+</body>
+</html>
